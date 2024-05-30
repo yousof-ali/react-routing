@@ -1,17 +1,21 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigation } from "react-router-dom";
 import Footer from "../footer/Footer";
 import "./nav.css"
 
 const Nav = () => {
+    const navigation = useNavigation()
     return (
         <div>
             <ul>
-                <Link to={"home"}>Home</Link>
-                <Link to={"contact"}>Contact</Link>
-                <Link to={"users"}>Users</Link>
-                <Link to={"post"}>Post</Link>
+                <NavLink to={"home"}>Home</NavLink>
+                <NavLink to={"contact"}>Contact</NavLink>
+                <NavLink to={"users"}>Users</NavLink>
+                <NavLink to={"post"}>Post</NavLink>
             </ul>
-            <Outlet></Outlet>
+            {
+                navigation.state === "loading"? <p>Loading..............</p> :<Outlet></Outlet>
+            }
+            
             <Footer></Footer>
         </div>
     );

@@ -3,10 +3,11 @@ import { Link, useRouteError } from 'react-router-dom';
 
 const NotFound = () => {
     const error = useRouteError();
+    console.log(error)
     return (
         <div>
-            <h1>oppps</h1>
-            <p>{error.status || error.statusText}</p>
+            <h1>oooops</h1>
+            <p>{error.error.message || error.statusText}</p>
             
             {
                 error.status === 404 && <div>
