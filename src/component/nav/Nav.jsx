@@ -1,14 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import Footer from "../footer/Footer";
+import "./nav.css"
 
 const Nav = () => {
     return (
         <div>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>contact</li>
+                <Link to={"home"}>Home</Link>
+                <Link to={"contact"}>Contact</Link>
             </ul>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

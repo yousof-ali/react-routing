@@ -10,7 +10,7 @@ import {
 import Nav from './component/nav/Nav.jsx';
 import Home from './component/home/Home.jsx';
 import Contact from './component/contact/Contact.jsx';
-import About from './component/About/About.jsx';
+
 
 
 
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
      {
       path:"contact",
       element:<Contact></Contact>
-     },
-     {
-      path:"about",
-      element:<About></About>
      }
     ]
   },
