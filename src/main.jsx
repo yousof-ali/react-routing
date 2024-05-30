@@ -12,6 +12,9 @@ import Home from './component/home/Home.jsx';
 import Contact from './component/contact/Contact.jsx';
 import Users from './component/users/Users.jsx';
 import Detals from './component/detals/Detals.jsx';
+import Post from './component/post/Post.jsx';
+import PostDetails from './component/postDetails/PostDetails.jsx';
+import NotFound from './component/notFound/NotFound.jsx';
 
 
 
@@ -20,6 +23,7 @@ const router = createBrowserRouter([
   {
     path:"/",
     element:<Nav></Nav>,
+    errorElement:<NotFound></NotFound>,
     children:[
      {
       path:"home",
@@ -38,6 +42,16 @@ const router = createBrowserRouter([
       path:"user/:userid",
       loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.userid}`),
       element:<Detals></Detals>
+     },
+     {
+      path:"post",
+      loader:()=>fetch("https://jsonplaceholder.typicode.com/posts"),
+      element:<Post></Post>
+     },
+     {
+      path:"post/:postID",
+      loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/posts/${params.postID}`),
+      element:<PostDetails></PostDetails>
      }
     ]
   },
